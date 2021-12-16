@@ -6,6 +6,7 @@ public class Build : MonoBehaviour
 {
     public float buildValue = 1.0f;
     public GameObject baguette;
+
     public float height = 1.0f;
 
     float buildTimer = 0.0f;
@@ -20,6 +21,7 @@ public class Build : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // add additional checks for proximity
         if (Input.GetKeyDown("e"))
         {
             Debug.Log("START");
@@ -57,6 +59,7 @@ public class Build : MonoBehaviour
             {
                 Debug.Log("BUILD");
                 baguettes[i] = Instantiate(baguette, transform.position + new Vector3(0, Random.value * height, 0), transform.rotation);
+                baguettes[i].transform.parent = gameObject.transform;
                 break;
             }
         }

@@ -58,9 +58,15 @@ public class EnemyHit : MonoBehaviour
             {
                 // Player.damage;
             }
+        }
+
+        // handle damage
+        for (int i = 0; i < hitInfos.Length; i++)
+        {
             if (hitInfos[i].collider.CompareTag("Breakable"))
             {
                 hitInfos[i].collider.gameObject.GetComponent<Breakable>().Damage();
+                break;
             }
         }
     }
