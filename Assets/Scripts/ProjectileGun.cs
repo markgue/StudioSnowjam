@@ -8,7 +8,10 @@ public class ProjectileGun : MonoBehaviour
     //bullet
     public GameObject bullet;
     public AudioClip shotSound;
-    public AudioClip reloadSound;
+    public AudioClip zeroAmmoVoice;
+    public AudioClip reloadSound1;
+    public AudioClip reloadSound2;
+    public AudioClip reloadSound3;
 
     //bullet force
     public float shootForce;
@@ -80,6 +83,7 @@ public class ProjectileGun : MonoBehaviour
         if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
         {
             Reload();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(zeroAmmoVoice);
         }
 
         //Shooting
@@ -165,7 +169,23 @@ public class ProjectileGun : MonoBehaviour
 
     private void Reload()
     {
-        gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound);
+        int testing = Random.Range(1, 4);
+        switch (testing)
+        {
+            case 1:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound1);
+                break;
+            case 2:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound2);
+                break;
+            case 3:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound3);
+                break;
+            default:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound3);
+                break;
+        }
+
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
