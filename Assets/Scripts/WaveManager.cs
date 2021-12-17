@@ -7,12 +7,14 @@ public class WaveManager : MonoBehaviour
     public GameObject[] baguettes; // UI Elements
     public GameObject[] doors;
     public GameObject[] chimneySets;
+    
+    public AudioClip[] endSounds;
 
     GameObject[] chimneys;
 
     public int waveIndex = -1;
     Wave activeWave;
-    Wave[] storedWaves = { new Wave(2, 3), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
+    Wave[] storedWaves = { new Wave(2, 15), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +84,10 @@ public class WaveManager : MonoBehaviour
     {
         // add wave progression + UI
         waveIndex++;
+        if (waveIndex > 0)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(endSounds[(int) (Random.value * endSounds.Length) % endSounds.Length]);
+        }
         activeWave = storedWaves[waveIndex]; // add win condition
         baguettes[waveIndex].SetActive(true);
         if(waveIndex == 3)
