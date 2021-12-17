@@ -23,6 +23,7 @@ public class CustomBullet : MonoBehaviour
     public int maxCollisions;
     public float maxLifeTime;
     public bool explodeOnTouch = true;
+    bool isActive = true;
 
     int collisions;
     PhysicMaterial physics_mat;
@@ -63,11 +64,13 @@ public class CustomBullet : MonoBehaviour
             //Just an example!
             //enemies[i].GetComponent<ShootingAI>().TakeDamage(explosionDamage);
 
-          //if (enemies[i].GetComponent<Rigidbody>())
-          //{
-                //enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
-              //Destroy(enemies[i]);
-          //}
+            //if (enemies[i].GetComponent<Rigidbody>())
+            //{
+            //enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+            //Destroy(enemies[i]);
+            //}
+            enemies[i].transform.parent.GetComponent<EnemyHit>().Damage();
+            Debug.Log("ENEMY FOUND");
         }
 
         //Add a little delay, just to make sure everything works fine
@@ -91,11 +94,15 @@ public class CustomBullet : MonoBehaviour
         collisions++;
 
         //Explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if(collision.collider.CompareTag("Enemy") && explodeOnTouch)
+        if(collision.collider.CompareTag("Enemy") && isActive)
         {
-            //Explode();
-            Destroy(gameObject);
-            Destroy(collision.collider.gameObject);
+            // Explode();
+            collision.collider.transform.parent.GetComponent<EnemyHit>().Damage();
+            isActive = false;
+        }
+        if (collision.collider.CompareTag("Environment"))
+        {
+            isActive = false;
         }
     }
 
