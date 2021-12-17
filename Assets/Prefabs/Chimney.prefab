@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 215209703504024450}
   m_Layer: 0
   m_Name: Chimney
-  m_TagString: Untagged
+  m_TagString: Chimney
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b4047add347141900661f144d26cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 2723330266456366383, guid: be58fef8ef19cb943aa1f756b134e67f, type: 3}
   radius: 1
   height: 5

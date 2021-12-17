@@ -70,4 +70,10 @@ public class EnemyHit : MonoBehaviour
             }
         }
     }
+
+    public void Damage()
+    {
+        // score
+        // health
+    }
 }
