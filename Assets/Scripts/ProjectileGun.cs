@@ -46,6 +46,9 @@ public class ProjectileGun : MonoBehaviour
 
     public Text ammunitionDisplay;
 
+    //Animation
+    Animator animator;
+
     //bug fixing
     public bool allowInvoke = true;
 
@@ -55,6 +58,7 @@ public class ProjectileGun : MonoBehaviour
         bulletsLeft = magazineSize;
         extraAmmo = totalAmmo - magazineSize;
         readyToShoot = true;
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -149,6 +153,9 @@ public class ProjectileGun : MonoBehaviour
 
         bulletsLeft--;
         bulletsShot++;
+
+        //Play animation
+        animator.SetTrigger("Fire");
 
         //invoke resetShot function (if not already invoked)
         if (allowInvoke)
