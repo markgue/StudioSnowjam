@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CharacterDeath : MonoBehaviour
 {
-    [SerializeField] private GameObject gameObject;
     [SerializeField] private int hitpoints;
     private int maxHP;
     private bool playerDead = false;
