@@ -22792,22 +22792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1578387307443156201, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.98022
-      objectReference: {fileID: 0}
-    - target: {fileID: 1578387307443156201, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -1.2011555e-12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7262183072099680033, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: ammunitionDisplay
-      value: 
-      objectReference: {fileID: 1838933021}
-    - target: {fileID: 7262183072099680035, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e119cc8af993a9d44acc7c7f484bfefe, type: 2}
     - target: {fileID: 7262183072574752930, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -22857,18 +22841,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7262183072929812474, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197662359840202390, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 89.98021
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197662359840202390, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9197662359840202390, guid: 0a89f91b5889e9443b8fc3fe2c327c60, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
@@ -27346,9 +27318,11 @@ MonoBehaviour:
   spread: 0
   reloadTime: 1
   timeBetweenShots: 1
+  totalAmmo: 0
   magazineSize: 2
   bulletsPerTap: 1
   allowButtonHold: 0
+  extraAmmo: 0
   fpsCam: {fileID: 1190849227}
   attackPoint: {fileID: 1796909329}
   muzzleFlash: {fileID: 0}

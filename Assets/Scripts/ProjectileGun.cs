@@ -66,7 +66,7 @@ public class ProjectileGun : MonoBehaviour
         MyInput();
 
         //set ammo display, if it exists :D
-        if (ammunitionDisplay1 != null)
+        if (ammunitionDisplay != null)
         {
             ammunitionDisplay.text = "" + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
         }
