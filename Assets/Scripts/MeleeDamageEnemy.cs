@@ -1,25 +1,17 @@
-/*using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class MeleeDamageEnemy : MonoBehaviour
 {
     [SerializeField] public int damageAmount;
     [SerializeField] public int attackRadius;
-    InputAction meleeAttackAction;
-    private bool meleeAttackActionOccured;
+    [SerializeField] public AudioSource meleeAttackSound;
     public Vector3 collision = Vector3.zero;
     public GameObject lastHit;
 
-    void Awake() {
-        meleeAttackAction = GetComponent<UnityEngine.InputSystem.PlayerInput>().actions.FindActionMap("Player").FindAction("Melee");
-        meleeAttackAction.performed += ctx => meleeAttackActionOccured = true;
-    }
-
     void Update() {
-        if (meleeAttackActionOccured) {
+        if (Input.GetKeyDown(KeyCode.F)) {
             var ray = new Ray(this.transform.position, this.transform.forward);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, attackRadius)) {
@@ -29,12 +21,14 @@ public class MeleeDamageEnemy : MonoBehaviour
                     lastHit.gameObject.GetComponent<EnemyDeath>().GiveDamage(damageAmount);
                 }
             }
+            if (!meleeAttackSound.isPlaying) {
+                meleeAttackSound.Play();
+            }
         }
-        meleeAttackActionOccured = false;
     }
 
     void OnDrawGizmos() {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(collision, 0.2f);
     }
-}*/
+}
