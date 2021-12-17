@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b4047add347141900661f144d26cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2723330266456366383, guid: be58fef8ef19cb943aa1f756b134e67f, type: 3}
+  enemy: {fileID: 5476074411406034652, guid: 311f4b1794fe82c478bac818ed5288c4, type: 3}
   radius: 1
   height: 5
 --- !u!1001 &4943351939127010631
