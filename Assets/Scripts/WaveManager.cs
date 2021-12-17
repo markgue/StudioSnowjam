@@ -7,12 +7,17 @@ public class WaveManager : MonoBehaviour
     public GameObject[] baguettes; // UI Elements
     public GameObject[] doors;
     public GameObject[] chimneySets;
+    
+    public AudioClip[] endSounds;
 
     GameObject[] chimneys;
 
     public int waveIndex = -1;
     Wave activeWave;
-    Wave[] storedWaves = { new Wave(2, 3), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
+    Wave[] storedWaves = { new Wave(2, 15), new Wave(2, 20), new Wave(1, 20), 
+                           new Wave(2, 30), new Wave(2, 40), new Wave(1, 40),
+                           new Wave(1, 40), new Wave(1, 50), new Wave(1, 60),
+                           new Wave(2, 0)};
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +35,7 @@ public class WaveManager : MonoBehaviour
         }
 
         GameObject[] scan = GameObject.FindGameObjectsWithTag("Enemy");
-        if (scan.Length == 0 && activeWave.IsFinished()) // ASSUMES ENEMY IS DELETED, ADD DESTRUCTION BEHAVIOR
+        if (scan.Length == 0 && activeWave.IsFinished() && waveIndex < 10) // ASSUMES ENEMY IS DELETED, ADD DESTRUCTION BEHAVIOR
         {
             ProgressWave();
         }
@@ -82,6 +87,10 @@ public class WaveManager : MonoBehaviour
     {
         // add wave progression + UI
         waveIndex++;
+        if (waveIndex > 0)
+        {
+            gameObject.GetComponent<AudioSource>().PlayOneShot(endSounds[(int) (Random.value * endSounds.Length) % endSounds.Length]);
+        }
         activeWave = storedWaves[waveIndex]; // add win condition
         baguettes[waveIndex].SetActive(true);
         if(waveIndex == 3)
@@ -94,10 +103,15 @@ public class WaveManager : MonoBehaviour
             doors[1].SetActive(false);
             chimneySets[1].SetActive(true);
         }
-        else if(waveIndex == 10)
+        else if(waveIndex == 9)
         {
             doors[2].SetActive(false);
-            chimneySets[2].SetActive(true);
+            for (int i = 0; i < 3; i++)
+            {
+                chimneySets[i].SetActive(false);
+            }
+            
         }
+        chimneys = GameObject.FindGameObjectsWithTag("Chimney");
     }
 }

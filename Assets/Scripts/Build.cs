@@ -58,7 +58,7 @@ public class Build : MonoBehaviour
     {
         for (int i = 0; i < baguettes.Length; i++)
         {
-            if (baguettes[i] == null)
+            if (baguettes[i] == null && Vector3.Distance(GameObject.FindGameObjectWithTag("Player").transform.position,transform.position) <= 3)
             {
                 Debug.Log("BUILD");
                 baguettes[i] = Instantiate(baguette, transform.position + new Vector3(0, Random.value * height + 0.5f, 0), Quaternion.Euler(0,180,90));

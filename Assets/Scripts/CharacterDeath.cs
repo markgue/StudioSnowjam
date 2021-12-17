@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class CharacterDeath : MonoBehaviour
 {
-    [SerializeField] private GameObject gameObject;
     [SerializeField] private int hitpoints;
     private int maxHP;
     private bool playerDead = false;
@@ -13,14 +12,17 @@ public class CharacterDeath : MonoBehaviour
     public float regenCountdown = 10;
     public bool allowRegen = false;
 
+    public float damageCountdown = 2;
+    public bool invinsible = false;
+
     void Start() {
         maxHP = hitpoints;
     }
 
-    public int getHealth()
-    {
+    public int getHealth() {
         return hitpoints;
     }
+
     void Update() {
         if (playerDead)
             Destroy(gameObject); // game over transition
@@ -35,18 +37,27 @@ public class CharacterDeath : MonoBehaviour
                 regenCountdown = 10; // potential public var
             }
         }
+        if (invinsible) {
+            if (damageCountdown > 0) {
+                damageCountdown -= Time.deltaTime;
+            } else {
+                invinsible = false;
+                damageCountdown = 2;
+            }
+        }
     }
 
     public void GiveDamage(int damage) {
-        if (hitpoints >= 1) {
+        if (hitpoints >= 1 && !invinsible) {
             hitpoints -= damage;
+            invinsible = true;
             if (!allowRegen) {
                 regenCountdown = 10;
                 allowRegen = true;
             }
             if (hitpoints < 1)
                 playerDead = true;
-        } else {
+        } else if (!invinsible) {
             playerDead = true;
         }
     }

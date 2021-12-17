@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: ab5aa89f451d77b448d5c1037401a673
+guid: 2753a4ce818bffe4e854e96ee7f5189c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: fireplaceTexture2
+    second: {fileID: 2800000, guid: 06af79c523c1fb1438dde826a903d4c0, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
