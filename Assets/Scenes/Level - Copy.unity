@@ -18281,21 +18281,9 @@ PrefabInstance:
       value: WaveManager
       objectReference: {fileID: 0}
     - target: {fileID: 3149926917005748161, guid: 2d26ef1ef40dbe84dabfd618f194648c, type: 3}
-      propertyPath: doors.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3149926917005748161, guid: 2d26ef1ef40dbe84dabfd618f194648c, type: 3}
       propertyPath: doors.Array.data[0]
       value: 
       objectReference: {fileID: 825349316}
-    - target: {fileID: 3149926917005748161, guid: 2d26ef1ef40dbe84dabfd618f194648c, type: 3}
-      propertyPath: baguettes.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3149926917005748161, guid: 2d26ef1ef40dbe84dabfd618f194648c, type: 3}
-      propertyPath: chimneySets.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3149926917005748161, guid: 2d26ef1ef40dbe84dabfd618f194648c, type: 3}
       propertyPath: baguettes.Array.data[0]
       value: 
