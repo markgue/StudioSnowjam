@@ -97,7 +97,11 @@ public class WaveManager : MonoBehaviour
         else if(waveIndex == 10)
         {
             doors[2].SetActive(false);
-            chimneySets[2].SetActive(true);
+            for (int i = 0; i < 3; i++)
+            {
+                chimneySets[i].SetActive(false);
+            }
+            
         }
     }
 }
