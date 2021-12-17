@@ -8,6 +8,7 @@ public class ProjectileGun : MonoBehaviour
     //bullet
     public GameObject bullet;
     public AudioClip shotSound;
+    public AudioClip reloadSound;
 
     //bullet force
     public float shootForce;
@@ -164,6 +165,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void Reload()
     {
+        gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound);
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }
