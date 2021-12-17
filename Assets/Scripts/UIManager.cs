@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
     public void IncrementScore()
     {
         score++;
-        scoreUI.GetComponent<Text>().text = "" + score;
+        scoreUI.GetComponent<TextMeshProUGUI>().SetText(score.ToString());
     }
 
     public void SetHealth(int health)
