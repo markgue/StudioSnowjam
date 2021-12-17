@@ -95,8 +95,8 @@ public class EnemyHit : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            UIManager.GetInstance().IncrementScore();
             Destroy(gameObject);
+            UIManager.GetInstance().IncrementScore();
         }
         // score
         // health
