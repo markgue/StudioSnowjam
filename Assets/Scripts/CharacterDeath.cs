@@ -7,17 +7,43 @@ public class CharacterDeath : MonoBehaviour
 {
     [SerializeField] private GameObject gameObject;
     [SerializeField] private int hitpoints;
-
+    private int maxHP;
     private bool playerDead = false;
 
+    public float regenCountdown = 10;
+    public bool allowRegen = false;
+
+    void Start() {
+        maxHP = hitpoints;
+    }
+
     void Update() {
-        if (playerDead) Destroy(gameObject);
+        if (playerDead)
+            Destroy(gameObject);
+        if (allowRegen) {
+            if (regenCountdown > 0) {
+                regenCountdown -= Time.deltaTime;
+            } else {
+                hitpoints++;
+                if (hitpoints == maxHP) {
+                    allowRegen = false;
+                }
+                regenCountdown = 10;
+            }
+        }
     }
 
     public void GiveDamage(int damage) {
         if (hitpoints >= 1) {
             hitpoints -= damage;
-            if (hitpoints < 1) playerDead = true;
+            if (!allowRegen) {
+                regenCountdown = 10;
+                allowRegen = true;
+            }
+            if (hitpoints < 1)
+                playerDead = true;
+        } else {
+            playerDead = true;
         }
     }
 }
