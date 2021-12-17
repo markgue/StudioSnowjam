@@ -23,10 +23,12 @@ public class ProjectileGun : MonoBehaviour
     public float spread;
     public float reloadTime;
     public float timeBetweenShots;
+    public int totalAmmo;
     public int magazineSize;
     public int bulletsPerTap;
     public bool allowButtonHold;
 
+    public int extraAmmo;
     int bulletsLeft;
     int bulletsShot;
 
@@ -41,6 +43,7 @@ public class ProjectileGun : MonoBehaviour
 
     //Graphics
     public GameObject muzzleFlash;
+
     public Text ammunitionDisplay;
 
     //bug fixing
@@ -50,6 +53,7 @@ public class ProjectileGun : MonoBehaviour
     {
         //make sure magazine is full
         bulletsLeft = magazineSize;
+        extraAmmo = totalAmmo - magazineSize;
         readyToShoot = true;
     }
 
@@ -58,7 +62,7 @@ public class ProjectileGun : MonoBehaviour
         MyInput();
 
         //set ammo display, if it exists :D
-        if (ammunitionDisplay != null)
+        if (ammunitionDisplay1 != null)
         {
             ammunitionDisplay.text = "" + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
         }
@@ -81,7 +85,7 @@ public class ProjectileGun : MonoBehaviour
             Reload();
         }
         //Reload automatically when trying to shoot without ammo
-        if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
+        if(readyToShoot && shooting && !reloading && bulletsLeft <= 0 && extraAmmo > 0)
         {
             Reload();
             gameObject.GetComponent<AudioSource>().PlayOneShot(zeroAmmoVoice);
@@ -194,7 +198,22 @@ public class ProjectileGun : MonoBehaviour
     private void ReloadFinished()
     {
         //fill magazine
-        bulletsLeft = magazineSize;
+        int bulletsNeeded = magazineSize - bulletsLeft;
+        if (extraAmmo >= bulletsNeeded)
+        {
+            bulletsLeft = magazineSize;
+            extraAmmo -= bulletsNeeded;
+        } else
+        {
+            bulletsLeft += extraAmmo;
+            extraAmmo = 0;
+        }
+        
         reloading = false;
+    }
+
+    public void EquipAmmo(int amt)
+    {
+        extraAmmo += amt;
     }
 }
