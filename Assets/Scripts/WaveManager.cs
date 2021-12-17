@@ -5,10 +5,12 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     public GameObject[] baguettes; // UI Elements
+    public GameObject[] doors;
+    public GameObject[] chimneySets;
 
     GameObject[] chimneys;
 
-    int waveIndex = -1;
+    public int waveIndex = -1;
     Wave activeWave;
     Wave[] storedWaves = { new Wave(2, 3), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
 
@@ -80,7 +82,22 @@ public class WaveManager : MonoBehaviour
     {
         // add wave progression + UI
         waveIndex++;
-        baguettes[waveIndex].SetActive(true);
         activeWave = storedWaves[waveIndex]; // add win condition
+        baguettes[waveIndex].SetActive(true);
+        if(waveIndex == 3)
+        {
+            doors[0].SetActive(false);
+            chimneySets[0].SetActive(true);
+        }
+        else if(waveIndex == 6)
+        {
+            doors[1].SetActive(false);
+            chimneySets[1].SetActive(true);
+        }
+        else if(waveIndex == 10)
+        {
+            doors[2].SetActive(false);
+            chimneySets[2].SetActive(true);
+        }
     }
 }

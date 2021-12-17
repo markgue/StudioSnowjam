@@ -37,6 +37,11 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public static UIManager GetInstance()
+    {
+        return instance;
+    }
+
     public void IncrementScore()
     {
         score++;

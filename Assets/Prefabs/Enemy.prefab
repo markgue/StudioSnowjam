@@ -136,6 +136,7 @@ MonoBehaviour:
   halfExtent: 2
   maxDistance: 1.5
   cooldownValue: 1
+  health: 2
 --- !u!54 &2723330266456366377
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -262,7 +263,7 @@ GameObject:
   - component: {fileID: 2723330266746650728}
   m_Layer: 8
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

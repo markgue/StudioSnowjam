@@ -9,6 +9,8 @@ public class EnemyHit : MonoBehaviour
     public float maxDistance = 0.5f;
     public float cooldownValue = 1.0f;
 
+    public float health = 2;
+
     GameObject player;
     AIDestinationSetter destinationScript;
     float cooldownTimer;
@@ -44,6 +46,11 @@ public class EnemyHit : MonoBehaviour
         {
             cooldownTimer -= Time.fixedDeltaTime;
         }
+
+        if (Input.GetKeyDown("f"))
+        {
+            Damage();
+        }
     }
 
     void Hit(RaycastHit[] hitInfos)
@@ -74,6 +81,12 @@ public class EnemyHit : MonoBehaviour
 
     public void Damage()
     {
+        health--;
+        if (health <= 0)
+        {
+            UIManager.GetInstance().IncrementScore();
+            Destroy(gameObject);
+        }
         // score
         // health
     }
