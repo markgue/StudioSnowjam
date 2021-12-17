@@ -17,6 +17,10 @@ public class CharacterDeath : MonoBehaviour
         maxHP = hitpoints;
     }
 
+    public int getHealth()
+    {
+        return hitpoints;
+    }
     void Update() {
         if (playerDead)
             Destroy(gameObject); // game over transition
