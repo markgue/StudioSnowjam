@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ProjectileGun : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class ProjectileGun : MonoBehaviour
 
     //Graphics
     public GameObject muzzleFlash;
-    public TextMeshProUGUI ammunitionDisplay;
+    public Text ammunitionDisplay;
 
     //bug fixing
     public bool allowInvoke = true;
@@ -59,7 +60,7 @@ public class ProjectileGun : MonoBehaviour
         //set ammo display, if it exists :D
         if (ammunitionDisplay != null)
         {
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+            ammunitionDisplay.text = "" + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
         }
     }
 
