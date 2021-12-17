@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 73df36e1f5b4aee4987ee2afbd9befe4
+guid: 48d851532c975ea478990a2944391751
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: BaguetteTex
+    second: {fileID: 2800000, guid: dec8a00a38e52f942865100d8b0a0bbd, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
