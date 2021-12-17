@@ -7,6 +7,7 @@ public class ProjectileGun : MonoBehaviour
 {
     //bullet
     public GameObject bullet;
+    public AudioClip shotSound;
 
     //bullet force
     public float shootForce;
@@ -126,6 +127,9 @@ public class ProjectileGun : MonoBehaviour
         //Add forces to bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+
+        // gameObject.GetComponent<AudioSource>().clip = shotSound;
+        gameObject.GetComponent<AudioSource>().PlayOneShot(shotSound);
 
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)

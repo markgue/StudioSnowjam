@@ -29,7 +29,7 @@ public class EnemyHit : MonoBehaviour
     {
         // check if enemy should swing
         Vector3 origin = transform.position;
-        RaycastHit[] hitInfos = Physics.BoxCastAll(origin,new Vector3(0.1f,halfExtent,halfExtent),transform.forward, transform.rotation, maxDistance);
+        RaycastHit[] hitInfos = Physics.BoxCastAll(origin,new Vector3(halfExtent, halfExtent,0.1f),transform.forward, transform.rotation, maxDistance);
         Debug.DrawRay(origin, transform.forward * maxDistance);
 
         for (int i = 0; cooldownTimer <= 0.0f && i < hitInfos.Length; i++)
@@ -56,6 +56,7 @@ public class EnemyHit : MonoBehaviour
         {
             if (hitInfos[i].collider.CompareTag("Player"))
             {
+                hitInfos[i].collider.gameObject.GetComponent<CharacterDeath>().GiveDamage(10); // hard coded, 10 hits = dead
                 // Player.damage;
             }
         }

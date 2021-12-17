@@ -7,6 +7,7 @@ TagManager:
   - Breakable
   - A*
   - Chimney
+  - Enemy
   layers:
   - Default
   - TransparentFX

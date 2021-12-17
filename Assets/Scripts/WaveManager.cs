@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public GameObject[] baguettes;
+    public GameObject[] baguettes; // UI Elements
 
     GameObject[] chimneys;
 
     int waveIndex = -1;
     Wave activeWave;
-    Wave[] storedWaves = { new Wave(2, 5), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
+    Wave[] storedWaves = { new Wave(2, 3), new Wave(2, 10), new Wave(2, 15), new Wave(1, 20), new Wave(1, 25) };
 
     // Start is called before the first frame update
     void Start()
