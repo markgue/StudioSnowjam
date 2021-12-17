@@ -9,6 +9,8 @@ public class EnemyHit : MonoBehaviour
     public float maxDistance = 0.5f;
     public float cooldownValue = 1.0f;
 
+    public float health = 2;
+
     GameObject player;
     AIDestinationSetter destinationScript;
     float cooldownTimer;
@@ -29,7 +31,7 @@ public class EnemyHit : MonoBehaviour
     {
         // check if enemy should swing
         Vector3 origin = transform.position;
-        RaycastHit[] hitInfos = Physics.BoxCastAll(origin,new Vector3(0.1f,halfExtent,halfExtent),transform.forward, transform.rotation, maxDistance);
+        RaycastHit[] hitInfos = Physics.BoxCastAll(origin,new Vector3(halfExtent, halfExtent,0.1f),transform.forward, transform.rotation, maxDistance);
         Debug.DrawRay(origin, transform.forward * maxDistance);
 
         for (int i = 0; cooldownTimer <= 0.0f && i < hitInfos.Length; i++)
@@ -44,6 +46,11 @@ public class EnemyHit : MonoBehaviour
         {
             cooldownTimer -= Time.fixedDeltaTime;
         }
+
+        if (Input.GetKeyDown("f"))
+        {
+            Damage();
+        }
     }
 
     void Hit(RaycastHit[] hitInfos)
@@ -56,6 +63,7 @@ public class EnemyHit : MonoBehaviour
         {
             if (hitInfos[i].collider.CompareTag("Player"))
             {
+                hitInfos[i].collider.gameObject.GetComponent<CharacterDeath>().GiveDamage(10); // hard coded, 10 hits = dead
                 // Player.damage;
             }
         }
@@ -73,6 +81,12 @@ public class EnemyHit : MonoBehaviour
 
     public void Damage()
     {
+        health--;
+        if (health <= 0)
+        {
+            UIManager.GetInstance().IncrementScore();
+            Destroy(gameObject);
+        }
         // score
         // health
     }

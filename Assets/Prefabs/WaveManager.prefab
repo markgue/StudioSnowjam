@@ -43,9 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554725ffc4d60dc42bb7e69905389241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baguettes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  baguettes: []

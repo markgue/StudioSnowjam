@@ -7,6 +7,10 @@ TagManager:
   - Breakable
   - A*
   - Chimney
+  - Enemy
+  - Ground
+  - Bullet
+  - Environment
   layers:
   - Default
   - TransparentFX

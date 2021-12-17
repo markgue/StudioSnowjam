@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class ProjectileGun : MonoBehaviour
 {
     //bullet
     public GameObject bullet;
+    public AudioClip shotSound;
+    public AudioClip zeroAmmoVoice;
+    public AudioClip reloadSound1;
+    public AudioClip reloadSound2;
+    public AudioClip reloadSound3;
 
     //bullet force
     public float shootForce;
@@ -35,7 +41,7 @@ public class ProjectileGun : MonoBehaviour
 
     //Graphics
     public GameObject muzzleFlash;
-    public TextMeshProUGUI ammunitionDisplay;
+    public Text ammunitionDisplay;
 
     //bug fixing
     public bool allowInvoke = true;
@@ -54,7 +60,7 @@ public class ProjectileGun : MonoBehaviour
         //set ammo display, if it exists :D
         if (ammunitionDisplay != null)
         {
-            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+            ammunitionDisplay.text = "" + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
         }
     }
 
@@ -78,6 +84,7 @@ public class ProjectileGun : MonoBehaviour
         if(readyToShoot && shooting && !reloading && bulletsLeft <= 0)
         {
             Reload();
+            gameObject.GetComponent<AudioSource>().PlayOneShot(zeroAmmoVoice);
         }
 
         //Shooting
@@ -127,6 +134,9 @@ public class ProjectileGun : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
+        // gameObject.GetComponent<AudioSource>().clip = shotSound;
+        gameObject.GetComponent<AudioSource>().PlayOneShot(shotSound);
+
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)
         {
@@ -160,6 +170,23 @@ public class ProjectileGun : MonoBehaviour
 
     private void Reload()
     {
+        int testing = Random.Range(1, 4);
+        switch (testing)
+        {
+            case 1:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound1);
+                break;
+            case 2:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound2);
+                break;
+            case 3:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound3);
+                break;
+            default:
+                gameObject.GetComponent<AudioSource>().PlayOneShot(reloadSound3);
+                break;
+        }
+
         reloading = true;
         Invoke("ReloadFinished", reloadTime);
     }

@@ -7,6 +7,8 @@ public class Build : MonoBehaviour
     public float buildValue = 1.0f;
     public GameObject baguette;
 
+    public AudioClip[] buildSounds;
+
     public float height = 1.0f;
 
     float buildTimer = 0.0f;
@@ -21,6 +23,11 @@ public class Build : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    void FixedUpdate()
+    {
         // add additional checks for proximity
         if (Input.GetKeyDown("e"))
         {
@@ -33,10 +40,6 @@ public class Build : MonoBehaviour
             Debug.Log("END");
             buildTimer = 0.0f;
         }
-    }
-
-    void FixedUpdate()
-    {
         if (Input.GetKey("e"))
         {
             Debug.Log("HOLD");
@@ -58,8 +61,9 @@ public class Build : MonoBehaviour
             if (baguettes[i] == null)
             {
                 Debug.Log("BUILD");
-                baguettes[i] = Instantiate(baguette, transform.position + new Vector3(0, Random.value * height, 0), transform.rotation);
+                baguettes[i] = Instantiate(baguette, transform.position + new Vector3(0, Random.value * height + 0.5f, 0), Quaternion.Euler(0,180,90));
                 baguettes[i].transform.parent = gameObject.transform;
+                gameObject.GetComponent<AudioSource>().PlayOneShot(buildSounds[i]);
                 break;
             }
         }

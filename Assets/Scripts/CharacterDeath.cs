@@ -23,7 +23,7 @@ public class CharacterDeath : MonoBehaviour
     }
     void Update() {
         if (playerDead)
-            Destroy(gameObject);
+            Destroy(gameObject); // game over transition
         if (allowRegen) {
             if (regenCountdown > 0) {
                 regenCountdown -= Time.deltaTime;
@@ -32,7 +32,7 @@ public class CharacterDeath : MonoBehaviour
                 if (hitpoints == maxHP) {
                     allowRegen = false;
                 }
-                regenCountdown = 10;
+                regenCountdown = 10; // potential public var
             }
         }
     }
