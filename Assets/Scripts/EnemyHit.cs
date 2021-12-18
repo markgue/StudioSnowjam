@@ -11,6 +11,10 @@ public class EnemyHit : MonoBehaviour
 
     public float health = 2;
 
+    public AudioClip hitSound;
+
+    private AudioSource aud;
+
     // stuff for hop animation
     public GameObject coalModel;
     public float hopHeight = 0.02f;
@@ -32,6 +36,7 @@ public class EnemyHit : MonoBehaviour
         coalModel = transform.GetChild(0).gameObject;
         localCoalBaseTransform = coalModel.transform.localPosition;
         spawnTime = Time.time;
+        aud = gameObject.GetComponent<AudioSource>();
     }
 
     // TO-DO: Swing and Damage
@@ -85,6 +90,7 @@ public class EnemyHit : MonoBehaviour
                 break;
             }
         }
+        aud.PlayOneShot(hitSound);
     }
 
     public void Damage()

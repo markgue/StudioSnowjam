@@ -28,6 +28,9 @@ public class CustomBullet : MonoBehaviour
     int collisions;
     PhysicMaterial physics_mat;
 
+    //Sound
+    private AudioSource aud;
+
     private void Start()
     {
         Setup();
@@ -98,6 +101,7 @@ public class CustomBullet : MonoBehaviour
         {
             // Explode();
             collision.collider.transform.parent.GetComponent<EnemyHit>().Damage();
+            aud.Play();
             isActive = false;
         }
         if (collision.collider.CompareTag("Environment"))
@@ -118,6 +122,9 @@ public class CustomBullet : MonoBehaviour
 
         //Set gravity
         rb.useGravity = useGravity;
+        
+        //Get audio source
+        aud = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnDrawGizmosSelected()
