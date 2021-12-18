@@ -9,8 +9,10 @@ public class MeleeDamageEnemy : MonoBehaviour
     [SerializeField] public AudioSource meleeAttackSound;
     public Vector3 collision = Vector3.zero;
     public GameObject lastHit;
+    
+    public Animator animator;
 
-    void Update() {
+    void FixedUpdate() {
         if (Input.GetKeyDown(KeyCode.F)) {
             var ray = new Ray(this.transform.position, this.transform.forward);
             RaycastHit hit;
@@ -24,6 +26,7 @@ public class MeleeDamageEnemy : MonoBehaviour
             if (!meleeAttackSound.isPlaying) {
                 meleeAttackSound.Play();
             }
+            animator.SetTrigger("Swing");
         }
     }
 
