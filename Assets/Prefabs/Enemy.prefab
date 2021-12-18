@@ -234,7 +234,7 @@ MonoBehaviour:
   halfExtent: 2
   maxDistance: 1.5
   cooldownValue: 1
-  health: 2
+  health: 1
   hitSound: {fileID: 8300000, guid: bc9396f1b0f2f594b950392ae1123662, type: 3}
   coalModel: {fileID: 7130520968270882198}
   hopHeight: 0.3

@@ -73,7 +73,7 @@ public class ProjectileGun : MonoBehaviour
         }
         if (ammunitionDisplay2 != null)
         {
-            ammunitionDisplay2.SetText("" + totalAmmo / bulletsPerTap);
+            ammunitionDisplay2.SetText("" + extraAmmo / bulletsPerTap);
         }
     }
 
