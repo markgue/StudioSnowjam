@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterDeath : MonoBehaviour
 {
@@ -25,7 +26,10 @@ public class CharacterDeath : MonoBehaviour
 
     void Update() {
         if (playerDead)
+        {
             Destroy(gameObject); // game over transition
+            SceneManager.LoadScene("GameOver");
+        }
         if (allowRegen) {
             if (regenCountdown > 0) {
                 regenCountdown -= Time.deltaTime;
