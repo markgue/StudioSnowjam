@@ -57,10 +57,7 @@ public class EnemyHit : MonoBehaviour
             cooldownTimer -= Time.fixedDeltaTime;
         }
 
-        if (Input.GetKeyDown("f"))
-        {
-            Damage();
-        }
+
         Hop();
     }
 
