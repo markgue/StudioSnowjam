@@ -44,7 +44,8 @@ public class ProjectileGun : MonoBehaviour
     //Graphics
     public GameObject muzzleFlash;
 
-    public Text ammunitionDisplay;
+    public TextMeshProUGUI ammunitionDisplay1;
+    public TextMeshProUGUI ammunitionDisplay2;
 
     //Animation
     Animator animator;
@@ -66,9 +67,13 @@ public class ProjectileGun : MonoBehaviour
         MyInput();
 
         //set ammo display, if it exists :D
-        if (ammunitionDisplay != null)
+        if (ammunitionDisplay1 != null)
         {
-            ammunitionDisplay.text = "" + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap;
+            ammunitionDisplay1.SetText("" + bulletsLeft / bulletsPerTap);
+        }
+        if (ammunitionDisplay2 != null)
+        {
+            ammunitionDisplay2.SetText("" + totalAmmo / bulletsPerTap);
         }
     }
 
