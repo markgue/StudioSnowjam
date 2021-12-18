@@ -90,7 +90,6 @@ public class EnemyHit : MonoBehaviour
                 break;
             }
         }
-        aud.PlayOneShot(hitSound);
     }
 
     public void Damage()

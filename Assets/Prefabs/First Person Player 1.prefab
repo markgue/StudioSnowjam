@@ -988,6 +988,7 @@ MonoBehaviour:
   allowRegen: 0
   damageCountdown: 2
   invinsible: 0
+  hitSound: {fileID: 8300000, guid: bc9396f1b0f2f594b950392ae1123662, type: 3}
 --- !u!114 &5751510016661232463
 MonoBehaviour:
   m_ObjectHideFlags: 0

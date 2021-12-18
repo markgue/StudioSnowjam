@@ -16,8 +16,12 @@ public class CharacterDeath : MonoBehaviour
     public float damageCountdown = 2;
     public bool invinsible = false;
 
+    private AudioSource aud;
+    public AudioClip hitSound;
+
     void Start() {
         maxHP = hitpoints;
+        aud = gameObject.GetComponent<AudioSource>();
     }
 
     public int getHealth() {
@@ -53,6 +57,7 @@ public class CharacterDeath : MonoBehaviour
 
     public void GiveDamage(int damage) {
         if (hitpoints >= 1 && !invinsible) {
+            aud.PlayOneShot(hitSound);
             hitpoints -= damage;
             invinsible = true;
             if (!allowRegen) {
