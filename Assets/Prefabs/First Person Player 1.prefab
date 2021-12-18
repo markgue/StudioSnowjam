@@ -907,7 +907,6 @@ GameObject:
   - component: {fileID: 3105516597526301969}
   - component: {fileID: 5751510016661232463}
   - component: {fileID: 5751510016661232462}
-  - component: {fileID: 4118487841675123262}
   m_Layer: 7
   m_Name: First Person Player 1
   m_TagString: Player
@@ -1103,29 +1102,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!164 &4118487841675123262
-AudioReverbFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5751510016661232457}
-  m_Enabled: 1
-  m_DryLevel: 0
-  m_Room: -1000
-  m_RoomHF: -100
-  m_DecayTime: 1.49
-  m_DecayHFRatio: 0.83
-  m_ReflectionsLevel: -2602
-  m_ReverbLevel: 200
-  m_ReverbDelay: 0.011
-  m_Diffusion: 100
-  m_Density: 100
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 1
 --- !u!1 &5751510017675434754
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,13 +1260,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.761
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 159
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1419,8 +1395,7 @@ MonoBehaviour:
   fpsCam: {fileID: 5751510016378125957}
   attackPoint: {fileID: 5751510016509235871}
   muzzleFlash: {fileID: 0}
-  ammunitionDisplay1: {fileID: 0}
-  ammunitionDisplay2: {fileID: 0}
+  ammunitionDisplay: {fileID: 0}
   allowInvoke: 1
 --- !u!1 &6910206330605369758
 GameObject:
