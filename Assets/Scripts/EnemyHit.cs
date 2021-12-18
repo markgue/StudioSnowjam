@@ -11,6 +11,13 @@ public class EnemyHit : MonoBehaviour
 
     public float health = 2;
 
+    // stuff for hop animation
+    public GameObject coalModel;
+    public float hopHeight = 0.02f;
+    public float hopSpeed = 5f;
+    private Vector3 localCoalBaseTransform;
+    private float spawnTime;
+
     GameObject player;
     AIDestinationSetter destinationScript;
     float cooldownTimer;
@@ -22,6 +29,9 @@ public class EnemyHit : MonoBehaviour
         destinationScript = gameObject.GetComponent<AIDestinationSetter>();
         destinationScript.target = player.transform;
         cooldownTimer = 0.0f;
+        coalModel = transform.GetChild(0).gameObject;
+        localCoalBaseTransform = coalModel.transform.localPosition;
+        spawnTime = Time.time;
     }
 
     // TO-DO: Swing and Damage
@@ -51,6 +61,7 @@ public class EnemyHit : MonoBehaviour
         {
             Damage();
         }
+        Hop();
     }
 
     void Hit(RaycastHit[] hitInfos)
@@ -84,10 +95,15 @@ public class EnemyHit : MonoBehaviour
         health--;
         if (health <= 0)
         {
-            UIManager.GetInstance().IncrementScore();
             Destroy(gameObject);
+            UIManager.GetInstance().IncrementScore();
         }
         // score
         // health
+    }
+
+    public void Hop()
+    {
+        coalModel.transform.localPosition = new Vector3(localCoalBaseTransform.x, localCoalBaseTransform.y + hopHeight * Mathf.Max(Mathf.Sin(Time.time * hopSpeed - spawnTime), 0), localCoalBaseTransform.z);
     }
 }
