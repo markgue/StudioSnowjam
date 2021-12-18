@@ -20,7 +20,7 @@ public class MeleeDamageEnemy : MonoBehaviour
                 lastHit = hit.transform.gameObject;
                 collision = hit.point;
                 if (lastHit.gameObject.CompareTag("Enemy")) {
-                    lastHit.gameObject.GetComponent<EnemyDeath>().GiveDamage(damageAmount);
+                    lastHit.gameObject.GetComponent<EnemyHit>().Damage();
                 }
             }
             if (!meleeAttackSound.isPlaying) {
