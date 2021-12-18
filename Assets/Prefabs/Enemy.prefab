@@ -264,7 +264,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bc9396f1b0f2f594b950392ae1123662, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -363,7 +363,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   voicelines:
-  - {fileID: 8300000, guid: fc4ad1678016f50478f9f3b0187f32ca, type: 3}
+  - {fileID: 8300000, guid: f2772bbcfcaa87649a66aa46c21a485d, type: 3}
+  - {fileID: 8300000, guid: 6e298dec17026814b8f92a9f7fbaf5ff, type: 3}
+  - {fileID: 8300000, guid: 0445a250101f2604499274a617cab76d, type: 3}
+  - {fileID: 8300000, guid: 14e867a4315e6f64fa4d5a18a1acfeed, type: 3}
+  - {fileID: 8300000, guid: b9e09dc40459b534bac27e266ea9a930, type: 3}
   voiceValue: 0
 --- !u!1001 &7941494153233275079
 PrefabInstance:
