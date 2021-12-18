@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 5476074411406034649}
   - component: {fileID: 5476074411406034650}
   - component: {fileID: 214461879736161365}
+  - component: {fileID: 4788452213967570341}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -264,7 +265,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bc9396f1b0f2f594b950392ae1123662, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -349,6 +350,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4788452213967570341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476074411406034652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503c9f53ec5733043bdfb418c5b486f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  voicelines:
+  - {fileID: 8300000, guid: fc4ad1678016f50478f9f3b0187f32ca, type: 3}
+  voiceValue: 0
 --- !u!1001 &7941494153233275079
 PrefabInstance:
   m_ObjectHideFlags: 0

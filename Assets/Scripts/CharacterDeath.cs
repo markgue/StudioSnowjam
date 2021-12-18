@@ -30,7 +30,7 @@ public class CharacterDeath : MonoBehaviour
             if (regenCountdown > 0) {
                 regenCountdown -= Time.deltaTime;
             } else {
-                hitpoints++;
+                hitpoints+=10;
                 if (hitpoints == maxHP) {
                     allowRegen = false;
                 }
